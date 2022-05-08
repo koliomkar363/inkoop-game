@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game</title>
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <div id="start-view">
+      <button id="start-btn">Start Game</button>
+      <h3>Player 1 - Won: <span id="win1">0</span></h3>
+      <h3>Player 2 - Won: <span id="win2">0</span></h3>
+      <h2 id="winner"></h2>
+    </div>
+    <div id="game-view" style="display: none">
+      <button id="home-btn">End</button>
+      <div>
+        <h1>Player 1</h1>
+        <p>Health: <span id="health-1">10</span></p>
+        <button id="attack-btn-1">Attack</button>
+      </div>
+      <div>
+        <h1>Player 2</h1>
+        <p>Health: <span id="health-2">10</span></p>
+        <button id="attack-btn-2" disabled>Attack</button>
+      </div>
+    </div>
+  </body>
+</html>
