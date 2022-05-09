@@ -1,3 +1,5 @@
+const resetBtn = document.getElementById('reset-btn');
+
 const startBtn = document.getElementById('start-btn');
 const start = document.getElementById('start-view');
 
@@ -13,11 +15,23 @@ const health2 = document.getElementById('health-2');
 const win1 = document.getElementById('win1');
 const win2 = document.getElementById('win2');
 
+const winner = document.getElementById('winner');
+
+resetBtn.addEventListener('click', (event) => {
+  startBtn.disabled = false;
+
+  win1.textContent = 0;
+  win2.textContent = 0;
+
+  winner.textContent = '';
+  event.target.disabled = true;
+});
+
 startBtn.addEventListener('click', () => {
   start.style.display = 'none';
   game.style.display = 'block';
-  health1.textContent = 10;
-  health2.textContent = 10;
+  health1.textContent = 100;
+  health2.textContent = 100;
 
   attackBtn1.disabled = false;
   attackBtn2.disabled = true;
@@ -26,7 +40,6 @@ startBtn.addEventListener('click', () => {
 homeBtn.addEventListener('click', () => {
   game.style.display = 'none';
   start.style.display = 'block';
-  document.getElementById('winner').textContent = 'Player 1 won!';
 });
 
 function home(player) {
@@ -34,24 +47,28 @@ function home(player) {
   start.style.display = 'block';
 
   if (player === 1) {
-    let wins = document.getElementById('win1').innerHTML;
+    let wins = win1.innerHTML;
     wins++;
 
     win1.textContent = wins;
 
     if (wins === 3) {
       console.log('Player 1 won!');
-      document.getElementById('winner').textContent = 'Player 1 won!';
+      winner.textContent = 'Player 1 won the match!';
+      startBtn.disabled = true;
+      resetBtn.disabled = false;
     }
   } else {
-    let wins = document.getElementById('win2').innerHTML;
+    let wins = win2.innerHTML;
     wins++;
 
     win2.textContent = wins;
 
     if (wins === 3) {
       console.log('Player 2 won!');
-      document.getElementById('winner').textContent = 'Player 2 won!';
+      winner.textContent = 'Player 2 won!';
+      startBtn.disabled = true;
+      resetBtn.disabled = false;
     }
   }
 }
